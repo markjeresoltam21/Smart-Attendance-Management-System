@@ -1,0 +1,74 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper function to check if user is authenticated
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    // Helper function to check if user is admin
+    function isAdmin() {
+      return isSignedIn() && 
+             get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+    
+    // Helper function to check if user owns the resource
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+    
+    // ============================================
+    // USERS COLLECTION
+    // ============================================
+    match /users/{userId} {
+      // Anyone authenticated can read user data
+      allow read: if isSignedIn();
+      
+      // Users can create their own profile during registration
+      allow create: if isSignedIn() && request.auth.uid == userId;
+      
+      // Users can update their own data, or admin can update any user
+      allow update: if isOwner(userId) || isAdmin();
+      
+      // Only admin can delete users
+      allow delete: if isAdmin();
+    }
+    
+    // ============================================
+    // ATTENDANCE COLLECTION
+    // ============================================
+    match /attendance/{attendanceId} {
+      // Anyone authenticated can read attendance data
+      allow read: if isSignedIn();
+      
+      // Users can create their own attendance records
+      // Attendance ID must match pattern: {userId}_{date}
+      allow create: if isSignedIn() && 
+                      request.resource.data.userId == request.auth.uid &&
+                      attendanceId.matches('^' + request.auth.uid + '_[0-9]{4}-[0-9]{2}-[0-9]{2}$');
+      
+      // Only admin can update attendance records
+      allow update: if isAdmin();
+      
+      // Only admin can delete attendance records
+      allow delete: if isAdmin();
+    }
+    
+    // ============================================
+    // SETTINGS COLLECTION (Optional)
+    // ============================================
+    match /settings/{settingId} {
+      // Anyone authenticated can read settings
+      allow read: if isSignedIn();
+      
+      // Only admin can write settings
+      allow write: if isAdmin();
+    }
+    
+    // Deny all other access
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

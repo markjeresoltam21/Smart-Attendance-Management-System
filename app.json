@@ -1,0 +1,69 @@
+{
+  "expo": {
+    "name": "Smart Attendance App",
+    "slug": "smart-attendance-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/logo.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/images/logo.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#4A90E2"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mjsag.smartattendance"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/logo.png",
+        "backgroundColor": "#4A90E2"
+      },
+      "package": "com.mjsag.smartattendance",
+      "googleServicesFile": "./google-services.json",
+      "permissions": [
+        "android.permission.INTERNET",
+        "android.permission.ACCESS_NETWORK_STATE",
+        "android.permission.POST_NOTIFICATIONS"
+      ]
+    },
+    "extra": {
+      "eas": {
+        "projectId": "73085369-ef68-42dc-be8e-e23743764398"
+      }
+    },
+    "web": {
+      "favicon": "./assets/images/logo.png"
+    },
+    "plugins": [
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#4A90E2",
+          "image": "./assets/images/logo.png",
+          "imageWidth": 200
+        }
+      ],
+      "expo-asset",
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/logo.png",
+          "color": "#4A90E2",
+          "sounds": [],
+          "mode": "production"
+        }
+      ]
+    ],
+    "notification": {
+      "icon": "./assets/images/logo.png",
+      "color": "#4A90E2",
+      "androidMode": "default",
+      "androidCollapsedTitle": "Smart Attendance"
+    }
+  }
+}
