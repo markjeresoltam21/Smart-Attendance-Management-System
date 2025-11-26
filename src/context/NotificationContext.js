@@ -93,29 +93,37 @@ export const NotificationProvider = ({ children, user, userData }) => {
 
   const subscribeToAdminNotifications = () => {
     // Client: Listen to notifications addressed to them
+    // Note: We only filter by recipientId and sort client-side to avoid composite index
     return db.collection('notifications')
       .where('recipientId', '==', user.uid)
-      .orderBy('createdAt', 'desc')
       .onSnapshot((snapshot) => {
         const adminNotifications = [];
         snapshot.forEach((doc) => {
           const data = doc.data();
-          // Filter isRead client-side to avoid composite index requirement
-          if (data.isRead === false) {
-            adminNotifications.push({
-              id: doc.id,
-              type: data.type || 'message',
-              title: data.title,
-              message: data.message,
-              timestamp: data.createdAt,
-              from: data.from || 'Admin',
-              isRead: data.isRead
-            });
-          }
+          adminNotifications.push({
+            id: doc.id,
+            type: data.type || 'message',
+            title: data.title,
+            message: data.message,
+            timestamp: data.createdAt,
+            createdAt: data.createdAt,
+            from: data.from || 'Admin',
+            isRead: data.isRead
+          });
         });
 
+        // Sort by createdAt client-side (descending - newest first)
+        adminNotifications.sort((a, b) => {
+          const aDate = a.createdAt?.toDate ? a.createdAt.toDate() : new Date(a.createdAt);
+          const bDate = b.createdAt?.toDate ? b.createdAt.toDate() : new Date(b.createdAt);
+          return bDate - aDate;
+        });
+
+        // Filter unread notifications
+        const unreadNotifications = adminNotifications.filter(n => n.isRead === false);
+
         setNotifications(adminNotifications);
-        setUnreadCount(adminNotifications.length);
+        setUnreadCount(unreadNotifications.length);
       }, (error) => {
         console.error('Error subscribing to notifications:', error);
       });

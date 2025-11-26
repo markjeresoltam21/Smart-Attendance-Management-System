@@ -1,5 +1,21 @@
 # Smart Attendance Management System (SAMS)
 
+<div align="center">
+  <img src="assets/images/logo.png" alt="SAMS Logo" width="120" style="margin-bottom: 20px;">
+  
+  <img src="assets/images/mjsag.jpg" alt="Mark Jere Soltam Ayala Gementiza" width="200" style="border-radius: 50%; margin-bottom: 20px;">
+  
+  **Mark Jere Soltam Ayala Gementiza**
+  
+  23 years old • BSIT Student
+  
+  🎓 Agusan del Sur State College of Agriculture and Technology
+  
+  *Passionate about mobile app development and creating solutions that help students manage their finances effectively. This project represents my journey in React Native development and my commitment to building practical applications for the student community.*
+</div>
+
+---
+
 A mobile-based attendance tracking system built with React Native, Expo, and Firebase.
 
 ## Features
@@ -15,6 +31,39 @@ A mobile-based attendance tracking system built with React Native, Expo, and Fir
 - 🔔 **Push Notifications** - Daily attendance reminders at 9:00 AM
 - 📸 **Profile Images** - Upload and display user avatars
 - 📊 **Advanced Analytics** - Track present/absent trends with visual charts
+
+## Screenshots
+
+<div align="center">
+
+### Login & Registration
+<img src="assets/images/053a2b1e-0085-488d-aec3-4d273c4f1841.jpg" alt="Login Screen" width="250" style="margin: 10px;">
+<img src="assets/images/141e9e6a-0e5b-4559-837a-636127843e6e.jpg" alt="Registration Screen" width="250" style="margin: 10px;">
+
+### Admin Dashboard
+<img src="assets/images/14610e9a-ac4d-4601-b389-88bdb3309120.jpg" alt="Admin Dashboard - Statistics" width="250" style="margin: 10px;">
+<img src="assets/images/2c94d01e-6a28-4f74-a9db-74107aafbb64.jpg" alt="Admin Dashboard - Attendance Tab" width="250" style="margin: 10px;">
+<img src="assets/images/3123d0d3-636d-488a-a805-9ccb2f706a27.jpg" alt="Admin Dashboard - Users Tab" width="250" style="margin: 10px;">
+
+### Client Dashboard
+<img src="assets/images/341d4eeb-3f3a-4746-9852-5c5c7661ee2e.jpg" alt="Client Dashboard - Overview" width="250" style="margin: 10px;">
+<img src="assets/images/66253fb2-7280-4712-8fa5-1c841622f4bd.jpg" alt="Client Dashboard - Charts" width="250" style="margin: 10px;">
+
+### User Management & Profile
+<img src="assets/images/761d49ed-1c35-4e80-97bf-ff760d256f85.jpg" alt="User Management" width="250" style="margin: 10px;">
+<img src="assets/images/acaa3f88-89cb-4def-9154-6c534400c6a3.jpg" alt="Profile Screen" width="250" style="margin: 10px;">
+<img src="assets/images/b188ae9c-8c93-4943-9a21-84cd33030ac7.jpg" alt="User Profile Edit" width="250" style="margin: 10px;">
+
+### Attendance Features
+<img src="assets/images/be21d225-3120-4a1b-8e84-ef4c3db3d5ed.jpg" alt="Attendance Marking" width="250" style="margin: 10px;">
+<img src="assets/images/c373fac7-f1c3-49c9-aace-62d9425c89c1.jpg" alt="Attendance History" width="250" style="margin: 10px;">
+<img src="assets/images/ca4ec096-03c9-4077-be27-7c99243d10f3.jpg" alt="Attendance Reports" width="250" style="margin: 10px;">
+
+### Additional Features
+<img src="assets/images/e57f1a2d-79fa-40b4-8799-d65fee70f080.jpg" alt="Data Analytics" width="250" style="margin: 10px;">
+<img src="assets/images/f79e0a88-52a3-4ce4-a819-9d7d18b73ed7.jpg" alt="Settings & Configuration" width="250" style="margin: 10px;">
+
+</div>
 
 ## System Architecture
 
@@ -349,10 +398,20 @@ For issues or questions:
 - Review Expo logs for frontend errors
 - Ensure all dependencies are properly installed
 
+## GitHub Repository
+
+🔗 **Project Repository**: [Smart-Attendance-Management-System](https://github.com/markjeresoltam21/Smart-Attendance-Management-System)
+
+Clone the repository:
+```bash
+git clone https://github.com/markjeresoltam21/Smart-Attendance-Management-System.git
+cd Smart-Attendance-Management-System
+```
+
 ## License
 
 This project is for educational/internal use.
 
 ---
 
-Built with ❤️ using React Native & Firebase
+Built with ❤️ using React Native & Firebase by **Mark Jere Soltam Ayala Gementiza**

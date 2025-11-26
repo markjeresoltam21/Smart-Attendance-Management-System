@@ -4,8 +4,8 @@
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "web": "expo start --web",
     "init-db": "node scripts/initializeDatabase.js",
     "migrate-db": "node scripts/migrateDatabase.js",
@@ -20,6 +20,7 @@
     "@react-navigation/native-stack": "^7.1.13",
     "expo": "~54.0.0",
     "expo-asset": "12.0.9",
+    "expo-dev-client": "~6.0.17",
     "expo-file-system": "^19.0.17",
     "expo-image-picker": "^17.0.8",
     "expo-notifications": "^0.32.12",

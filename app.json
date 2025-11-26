@@ -40,6 +40,7 @@
       "favicon": "./assets/images/logo.png"
     },
     "plugins": [
+      "expo-dev-client",
       [
         "expo-splash-screen",
         {
@@ -64,6 +65,7 @@
       "color": "#4A90E2",
       "androidMode": "default",
       "androidCollapsedTitle": "Smart Attendance"
-    }
+    },
+    "owner": "markjeresoltam05210124"
   }
 }
