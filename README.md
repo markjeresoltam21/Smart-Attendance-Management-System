@@ -1,9 +1,24 @@
+<div align="center">
+  <img src="assets/images/logo.png" alt="SAMS Logo" width="150" style="margin-bottom: 30px;">
+</div>
+
 # Smart Attendance Management System (SAMS)
 
 <div align="center">
-  <img src="assets/images/logo.png" alt="SAMS Logo" width="120" style="margin-bottom: 20px;">
   
-  <img src="assets/images/mjsag.jpg" alt="Mark Jere Soltam Ayala Gementiza" width="200" style="border-radius: 50%; margin-bottom: 20px;">
+  ![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+  ![Expo](https://img.shields.io/badge/Expo-000020?style=for-the-badge&logo=expo&logoColor=white)
+  ![Firebase](https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white)
+  ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+  
+  ![GitHub stars](https://img.shields.io/github/stars/markjeresoltam21/Smart-Attendance-Management-System?style=social)
+  ![GitHub forks](https://img.shields.io/github/forks/markjeresoltam21/Smart-Attendance-Management-System?style=social)
+  ![GitHub issues](https://img.shields.io/github/issues/markjeresoltam21/Smart-Attendance-Management-System)
+  
+</div>
+
+<div align="center">
+  <img src="assets/images/mjsag.jpg" alt="Mark Jere Soltam Ayala Gementiza" width="200" style="border-radius: 50%; margin: 20px 0;">
   
   **Mark Jere Soltam Ayala Gementiza**
   
@@ -12,11 +27,33 @@
   🎓 Agusan del Sur State College of Agriculture and Technology
   
   *Passionate about mobile app development and creating solutions that help students manage their finances effectively. This project represents my journey in React Native development and my commitment to building practical applications for the student community.*
+  
+  [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/markjeresoltam21)
+  [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](#)
+  
 </div>
 
 ---
 
-A mobile-based attendance tracking system built with React Native, Expo, and Firebase.
+## 📋 Table of Contents
+
+- [Overview](#overview)
+- [Features](#features) 
+- [Screenshots](#screenshots)
+- [System Architecture](#system-architecture)
+- [Installation](#installation)
+- [User Roles](#user-roles)
+- [User Accounts](#user-accounts)
+- [API Documentation](#api-documentation)
+- [GitHub Repository](#github-repository)
+- [Contributing](#contributing)
+- [License](#license)
+
+---
+
+## 🎯 Overview
+
+A comprehensive mobile-based attendance tracking system built with React Native, Expo, and Firebase. SAMS provides a complete solution for educational institutions to manage student attendance with real-time data synchronization, advanced analytics, and user-friendly interfaces for both administrators and students.
 
 ## Features
 
@@ -184,6 +221,36 @@ After setting up Firebase, you can create test accounts:
 **Client Account:**
 - Email: `client@smartattendance.com`
 - Password: `client123`
+
+## 👥 User Accounts
+
+The system includes pre-configured accounts for testing and development:
+
+### 🛠️ System Accounts
+
+| Role | Name | Email | Password | Employee ID |
+|------|------|-------|----------|-----------|
+| 👨‍💼 Admin | System Administrator | `admin@gmail.com` | `admin123` | ADMIN001 |
+| 👨‍🎓 Student | Mark Jeresoltam | `markjeresoltam@gmail.com` | `student123` | STU001 |
+| 👨‍🎓 Student | Fernando Geraldez | `fernandogeraldez@gmail.com` | `students123` | STU002 |
+| 👨‍🎓 Student | Charmin Sarona | `charminsarona@gmail.com` | `students123` | STU003 |
+| 👨‍🎓 Student | Aevan Krizl Alicante | `aevankrizlalicante@gmail.com` | `students123` | STU004 |
+| 👨‍🎓 Student | Leo Renz Parilla | `leorenzparilla@gmail.com` | `students123` | STU005 |
+| 👨‍🎓 Student | Abbie Josol | `abbiejosol@gmail.com` | `students123` | STU006 |
+
+### 🔑 Quick Login
+
+**Admin Access:**
+```
+Email: admin@gmail.com
+Password: admin123
+```
+
+**Student Access (Example):**
+```
+Email: markjeresoltam@gmail.com
+Password: student123
+```
 
 ## CRUD Operations
 
@@ -368,6 +435,54 @@ Located in `scripts/` directory:
 
 Run scripts with: `node scripts/<script-name>.js`
 
+## 📚 API Documentation
+
+### Firebase Collections Structure
+
+#### Users Collection
+```javascript
+// Path: /users/{userId}
+{
+  uid: string,
+  email: string,
+  fullName: string,
+  role: 'admin' | 'client',
+  employeeId: string,
+  homeAddress: string,
+  contactNumber: string,
+  gender: 'male' | 'female',
+  assignedArea: string,
+  profileImage: string, // base64 encoded
+  pushToken: string,
+  createdAt: timestamp,
+  isActive: boolean
+}
+```
+
+#### Attendance Collection
+```javascript
+// Path: /attendance/{attendanceId}
+{
+  userId: string,
+  userName: string,
+  status: 'present' | 'absent' | 'late',
+  date: string, // YYYY-MM-DD format
+  checkInTime: string,
+  timestamp: timestamp,
+  createdAt: timestamp
+}
+```
+
+### Available Scripts
+
+| Script | Purpose | Usage |
+|--------|---------|-------|
+| `initializeDatabase.js` | Setup Firebase collections | `node scripts/initializeDatabase.js` |
+| `createInitialUsers.js` | Create test user accounts | `node scripts/createInitialUsers.js` |
+| `testFirebaseConnection.js` | Verify Firebase connectivity | `node scripts/testFirebaseConnection.js` |
+| `migrateUserData.js` | Update user schema | `node scripts/migrateUserData.js` |
+| `autoMigration.js` | Add sample attendance data | `node scripts/autoMigration.js` |
+
 ## Security Considerations
 
 - Never commit Firebase private keys to version control
@@ -407,6 +522,58 @@ Clone the repository:
 git clone https://github.com/markjeresoltam21/Smart-Attendance-Management-System.git
 cd Smart-Attendance-Management-System
 ```
+
+### 📈 Repository Statistics
+
+- **Language**: JavaScript (React Native)
+- **Framework**: Expo SDK 53+
+- **Database**: Firebase Firestore
+- **Authentication**: Firebase Auth
+- **Total Files**: 100+
+- **Development Status**: Active
+
+## 🤝 Contributing
+
+We welcome contributions to improve SAMS! Here's how you can help:
+
+### 🛠️ Development Setup
+
+1. **Fork the repository**
+2. **Clone your fork**:
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/Smart-Attendance-Management-System.git
+   cd Smart-Attendance-Management-System
+   ```
+3. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+4. **Create a feature branch**:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+5. **Make your changes and commit**:
+   ```bash
+   git commit -m "Add your meaningful commit message"
+   ```
+6. **Push and create a Pull Request**
+
+### 📋 Contribution Guidelines
+
+- Follow the existing code style and structure
+- Add meaningful commit messages
+- Update documentation for new features
+- Test your changes thoroughly
+- Include screenshots for UI changes
+
+### 🐛 Reporting Issues
+
+Found a bug? Please create an issue with:
+- Clear description of the problem
+- Steps to reproduce
+- Expected vs actual behavior
+- Screenshots (if applicable)
+- Device/OS information
 
 ## License
 
